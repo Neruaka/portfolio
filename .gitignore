@@ -11,7 +11,8 @@ lerna-debug.log*
 node_modules
 
 # Claude folder
-claude/
+.claude/
+*.claude/*
 
 # Build output
 dist

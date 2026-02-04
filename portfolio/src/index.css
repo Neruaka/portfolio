@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════
+   LIQUID GLASS DESIGN SYSTEM
+   Inspired by Apple Liquid Glass + Dark Minimalism
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Core palette */
+  --bg-primary: #111118;
+  --bg-secondary: #16161f;
+  --bg-elevated: #1c1c28;
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-blur: 20px;
+
+  /* Text */
+  --text-primary: #f2f2f8;
+  --text-secondary: #a0a0b4;
+  --text-tertiary: #6e6e88;
+  --text-accent: #a0b4ff;
+
+  /* Accents */
+  --accent-blue: #6e8cff;
+  --accent-purple: #9b7aff;
+  --accent-cyan: #5ce0d8;
+  --accent-gradient: linear-gradient(135deg, #6e8cff 0%, #9b7aff 50%, #5ce0d8 100%);
+
+  /* Typography */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  /* Spacing */
+  --section-gap: 140px;
+  --container-width: 1200px;
+  --container-padding: 24px;
+
+  /* Borders */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(110, 140, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(155, 122, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(92, 224, 216, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes ambientShift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -1%) rotate(1deg); }
+  66% { transform: translate(-1%, 2%) rotate(-0.5deg); }
+  100% { transform: translate(1%, -2%) rotate(0.5deg); }
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+::selection {
+  background: rgba(110, 140, 255, 0.3);
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover { color: var(--accent-blue); }
+
+@media (max-width: 768px) {
+  :root {
+    --section-gap: 80px;
+    --container-padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-gap: 60px;
+    --container-padding: 16px;
+  }
+}
